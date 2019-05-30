@@ -1,2 +1,5 @@
 # SpeechAndTextSamples
-This is a small repo containing dotnetcore console apps on how to convert text to speech, speech to text and translation
+This is a small repo containing dotnetcore console apps samples on how to:
+- Convert text to speech, 
+- Convert speech to text
+- Translation
