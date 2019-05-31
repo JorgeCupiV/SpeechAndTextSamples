@@ -1,4 +1,5 @@
 ﻿using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Translation;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -35,6 +36,7 @@ namespace CognitiveServices
         public async Task<string> GetTextFromSpeech(string audioToConvertToText)
         {
             var config = SpeechConfig.FromSubscription(cognitiveServicesSubscriptionKey, cognitiveServicesAzureRegion);
+            
             var stopRecognition = new TaskCompletionSource<int>();
 
             string result = string.Empty;
@@ -70,6 +72,63 @@ namespace CognitiveServices
                     await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
 
                     return result;
+                }
+            }
+        }
+
+        public static async Task<Translation> GetTranslationFromSpeech(string fileName, 
+            string fromLanguageLocale, 
+            string targetLanguage, 
+            string voiceLanguage)
+        {
+            Translation translation = new Translation();
+
+            var config = SpeechTranslationConfig.FromSubscription(Services.cognitiveServicesSubscriptionKey, Services.cognitiveServicesAzureRegion);
+
+            var stopRecognition = new TaskCompletionSource<int>();
+
+            config.SpeechRecognitionLanguage = fromLanguageLocale;
+            config.AddTargetLanguage(targetLanguage);
+            config.VoiceName = voiceLanguage;
+
+            using (var audioInput = Helper.OpenWavFile(fileName))
+            {
+                using (var recognizer = new TranslationRecognizer(config, audioInput))
+                {
+                    recognizer.Synthesizing += (s, e) =>
+                    {
+                        var audio = e.Result.GetAudio();
+                        if (audio.Length > 0)
+                        {
+                            translation.audio = new MemoryStream(audio);
+                        }
+                    };
+
+                    recognizer.Recognized += (s, e) =>
+                    {
+                        if (e.Result.Reason == ResultReason.TranslatedSpeech)
+                        {
+                            foreach (var element in e.Result.Translations)
+                            {
+                                translation.text = element.Value;
+                            }
+                        }
+                    };
+
+                    recognizer.Canceled += (s, e) =>
+                    {
+                        if (e.Reason != CancellationReason.EndOfStream)
+                        {
+                            Console.WriteLine($"\nRecognition canceled. Reason: {e.Reason}; ErrorDetails: {e.ErrorDetails}");
+                        }
+                        stopRecognition.TrySetResult(0);
+                    };
+
+                    await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+                    Task.WaitAny(new[] { stopRecognition.Task });
+                    await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+
+                    return translation;
                 }
             }
         }

@@ -18,18 +18,47 @@
             cognitiveServicesAzureRegion = azureRegion;
         }
 
-        public struct Languages
-        {
-            public const string EnglishFemale = "en-US-ZiraRUS";
-            public const string ChineseMainlandFemale = "zh-CN-HuihuiRUS";
-            public const string EnglishNeuralFemale = "en-US-JessaNeural";
-            public const string ChineseMainlandNeuralFemale = "zh-CN-XiaoxiaoNeural";
-        }
-
         public struct AzureRegions
         {
             public const string EastUs = "eastus";
             public const string WestUs = "westus";
+        }
+
+        public struct LanguageForSpeech
+        {
+            public const string EnglishFemale = "en-US-ZiraRUS";
+            public const string EnglishNeuralFemale = "en-US-JessaNeural";
+            public const string ChineseMainlandFemale = "zh-CN-HuihuiRUS";
+            public const string ChineseMainlandNeuralFemale = "zh-CN-XiaoxiaoNeural";
+            public const string GermanFemale = "de-DE-Hedda";
+            public const string GermanNeuralFemale = "de-DE-KatjaNeural";
+            public const string ItalianNeuralFemale = "it-IT-ElsaNeural";
+            public const string SpanishMexicoFemale = "es-MX-HildaRUS";
+            public const string SpanishSpainFemale = "es-ES-HelenaRUS";
+        }
+
+        public struct Language
+        {
+            public const string English = "en";
+            public const string German= "de";
+            public const string French= "fr";
+            public const string Spanish = "es";
+            public const string ChineseSimplified = "zh-Hans";
+            public const string ChineseTraditional = "zh-Hant";
+            public const string Hindi= "hi";
+        }
+
+        public struct LanguageLocale
+        {
+            public const string English = "en-US";
+            public const string SpanishSpain = "es-ES";
+            public const string SpanishMexico = "es-MX";
+            public const string FrenchFrance = "fr-FR";
+            public const string HindiIndia = "hi-IN";
+            public const string PortuguesePortugal = "pt-PT";
+            public const string PortugueseBrazil = "pt-BR";
+            public const string ChineseMainland = "zh-CN";
+            public const string ChineseHongKong = "zh-HK";
         }
     }
 }

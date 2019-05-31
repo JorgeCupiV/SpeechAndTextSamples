@@ -90,10 +90,10 @@ namespace TextToSpeech_EN
 
         private static async void ApplyTextToSpeechTo(string textToTranslate)
         {
-            var dataStreamResult = await cognitiveServices.GetSpeechFromText(textToTranslate, Languages.EnglishNeuralFemale);
+            var dataStreamResult = await cognitiveServices.GetSpeechFromText(textToTranslate, LanguageForSpeech.EnglishNeuralFemale);
             await WriteStreamToFile("result.wav", dataStreamResult);
 
-            dataStreamResult = await cognitiveServices.GetSpeechFromText(textToTranslate, Languages.ChineseMainlandNeuralFemale);
+            dataStreamResult = await cognitiveServices.GetSpeechFromText(textToTranslate, LanguageForSpeech.ChineseMainlandNeuralFemale);
             await WriteStreamToFile("resultInChinese.wav", dataStreamResult);
         }
 

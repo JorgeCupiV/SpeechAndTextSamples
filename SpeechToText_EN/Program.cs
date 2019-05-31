@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CognitiveServices;
-using Microsoft.CognitiveServices.Speech;
-using SpeechToText_EN;
 using static CognitiveServices.Services;
 
-namespace Faurecia_SpeechTranslator_SpeechToText
+namespace SpeechToText_EN
 {
     class Program
     {
