@@ -28,7 +28,7 @@ namespace SpeechToText_EN
             bool appIsRunning = true;
             while (appIsRunning)
             {
-                string audioToConvertToText = "audio{0}.wav";
+                string audioToConvertToText = "audio-en-US-{0}.wav";
                 int option = ShowMenuAndSelectOption();
                 if (option <= 6)
                     audioToConvertToText = string.Format(audioToConvertToText, option);

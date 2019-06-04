@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="audio-en-US-1.wav" />
+    <None Remove="audio-en-US-2.wav" />
+    <None Remove="audio-en-US-3.wav" />
+    <None Remove="audio-en-US-4.wav" />
+    <None Remove="audio-en-US-5.wav" />
+    <None Remove="audio-en-US-6.wav" />
+    <None Remove="audio-zh-CN-1.wav" />
+    <None Remove="audio-zh-CN-2.wav" />
+    <None Remove="audio-zh-CN-3.wav" />
+    <None Remove="audio-zh-CN-4.wav" />
+    <None Remove="audio-zh-CN-5.wav" />
+    <None Remove="audio-zh-CN-6.wav" />
     <None Remove="audioCH-1.wav" />
     <None Remove="audioCH-2.wav" />
     <None Remove="audioCH-3.wav" />
@@ -17,6 +29,45 @@
     <None Remove="audioEN-4.wav" />
     <None Remove="audioEN-5.wav" />
     <None Remove="audioEN-6.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="audio-en-US-1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-en-US-2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-en-US-3.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-en-US-4.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-en-US-5.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-en-US-6.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-zh-CN-1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-zh-CN-2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-zh-CN-3.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-zh-CN-4.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-zh-CN-5.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="audio-zh-CN-6.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
