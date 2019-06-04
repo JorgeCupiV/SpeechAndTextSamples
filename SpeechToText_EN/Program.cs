@@ -24,7 +24,7 @@ namespace SpeechToText_EN
 
         static async Task Main(string[] args)
         {
-            cognitiveServices = new Services(resourceName, subscriptionKey, AzureRegions.EastUs);
+            cognitiveServices = new Services(resourceName, subscriptionKey, azureRegion);
             bool appIsRunning = true;
             while (appIsRunning)
             {
