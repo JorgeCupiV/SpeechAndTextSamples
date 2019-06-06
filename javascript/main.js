@@ -2,34 +2,28 @@
     "use strict";
     var sdk = require("microsoft-cognitiveservices-speech-sdk");
     var fs = require("fs");
-    var subscriptionKey = "YourSubscriptionKey";
-    var serviceRegion = "YourServiceRegion";
-    var filename = "audio-zh-CN-1.wav";
+
+    var settings = require("./settings");
+    var speech = require("./speech");
+    var translate = require("./translation");
     
+    settings.filename = process.argv[2];
+    settings.originLanguage = process.argv[3];
+    settings.targetLanguage = process.argv[4];
+    settings.targetLanguageTranslation = process.argv[5];
+
     var pushStream = sdk.AudioInputStream.createPushStream();
-    fs.createReadStream(filename).on('data', function(arrayBuffer){
+    fs.createReadStream(settings.filename).on('data', function(arrayBuffer){
       pushStream.write(arrayBuffer.buffer);
     }).on('end', function() {
       pushStream.close();
     });
+
+    // Translation service also returns recognized text in original language
+    console.log("Now translating from: " + settings.filename);
+                translate.main(settings, pushStream);
     
-    var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
-    var speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
-    speechConfig.speechRecognitionLanguage = "zh-CN";
-    
-    var recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-    console.log("Starting recognition from "+ filename);
-    recognizer.recognizeOnceAsync(
-      function (result) {
-        console.log("Text recognized: "+ result.privText);
-    
-        recognizer.close();
-        recognizer = undefined;
-      },
-      function (err) {
-        console.trace("err - " + err);
-    
-        recognizer.close();
-        recognizer = undefined;
-      });
+    // Just for recognizing speech and not translating
+    // console.log("Now recognizing speech from: " + settings.filename);
+    //             speech.main(settings, pushStream);
   }());
