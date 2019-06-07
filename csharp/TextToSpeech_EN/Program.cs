@@ -29,32 +29,32 @@ namespace TextToSpeech_EN
             bool appIsRunning = true;
             while (appIsRunning)
             {
-                string textToTranslate = string.Empty;
+                string textToSpeech = string.Empty;
 
                 string option = ShowMenuAndSelectOption();
                 switch (option)
                 {
                     case "1":
-                        textToTranslate = option1;
+                        textToSpeech = option1;
                         break;
                     case "2":
-                        textToTranslate = option2;
+                        textToSpeech = option2;
                         break;
                     case "3":
-                        textToTranslate = option3;
+                        textToSpeech = option3;
                         break;
                     case "4":
-                        textToTranslate = option4;
+                        textToSpeech = option4;
                         break;
                     case "5":
-                        textToTranslate = option5;
+                        textToSpeech = option5;
                         break;
                     case "6":
-                        textToTranslate = option6;
+                        textToSpeech = option6;
                         break;
                     case "7":
                         Console.Write("Please write what you want to convert to speech:");
-                        textToTranslate = Console.ReadLine();
+                        textToSpeech = Console.ReadLine();
                         break;
                     case "8":
                         appIsRunning = false;
@@ -65,7 +65,7 @@ namespace TextToSpeech_EN
 
                 if (appIsRunning)
                 {
-                    ApplyTextToSpeechTo(textToTranslate);
+                    ApplyTextToSpeechTo(textToSpeech);
 
                     Console.Clear();
                     Console.WriteLine($"Option {option} selected. Press Enter to go back to the menu again");
@@ -88,12 +88,12 @@ namespace TextToSpeech_EN
             return Console.ReadLine();
         }
 
-        private static async void ApplyTextToSpeechTo(string textToTranslate)
+        private static async void ApplyTextToSpeechTo(string textToSpeech)
         {
-            var dataStreamResult = await cognitiveServices.GetSpeechFromText(textToTranslate, LanguageForSpeech.EnglishNeuralFemale);
+            var dataStreamResult = await cognitiveServices.GetSpeechFromText(textToSpeech, LanguageForSpeech.EnglishNeuralFemale);
             await WriteStreamToFile("result.wav", dataStreamResult);
 
-            dataStreamResult = await cognitiveServices.GetSpeechFromText(textToTranslate, LanguageForSpeech.ChineseMainlandNeuralFemale);
+            dataStreamResult = await cognitiveServices.GetSpeechFromText(textToSpeech, LanguageForSpeech.ChineseMainlandNeuralFemale);
             await WriteStreamToFile("resultInChinese.wav", dataStreamResult);
         }
 

@@ -11,9 +11,9 @@ namespace CognitiveServices
 
     public partial class Services
     {
-        public async Task<Stream> GetSpeechFromText(string textToTranslate, string language)
+        public async Task<Stream> GetSpeechFromText(string textToSpeech, string language)
         {
-            string message = string.Format(textToSpeechBody, language , textToTranslate);
+            string message = string.Format(textToSpeechBody, language , textToSpeech);
 
             using (var client = new HttpClient())
             {
@@ -33,14 +33,14 @@ namespace CognitiveServices
             }
         }
 
-        public async Task<string> GetTextFromSpeech(string audioToConvertToText)
+        public async Task<string> GetTextFromSpeech(string fileName)
         {
             var config = SpeechConfig.FromSubscription(cognitiveServicesSubscriptionKey, cognitiveServicesAzureRegion);
             
             var stopRecognition = new TaskCompletionSource<int>();
 
             string result = string.Empty;
-            using (var audioInput = Helper.OpenWavFile(audioToConvertToText))
+            using (var audioInput = Helper.OpenWavFile(fileName))
             {
                 using (var recognizer = new SpeechRecognizer(config, audioInput))
                 {
