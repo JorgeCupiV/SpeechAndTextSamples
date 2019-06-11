@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
 namespace CognitiveServices
 {
@@ -10,5 +7,4 @@ namespace CognitiveServices
         public string text { get; set; }
         public Stream audio{ get; set; }
     }
-
 }

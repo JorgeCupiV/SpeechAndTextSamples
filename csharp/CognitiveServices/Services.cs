@@ -13,6 +13,8 @@ namespace CognitiveServices
     {
         public async Task<Stream> GetSpeechFromText(string textToSpeech, string language)
         {
+            Services.cognitiveServicesAccessToken  = await Authentication.GetAccessToken();
+
             string message = string.Format(textToSpeechBody, language , textToSpeech);
 
             using (var client = new HttpClient())
@@ -76,7 +78,7 @@ namespace CognitiveServices
             }
         }
 
-        public static async Task<Translation> GetTranslationFromSpeech(string fileName, 
+        public async Task<Translation> GetTranslationFromSpeech(string fileName, 
             string fromLanguageLocale, 
             string targetLanguage, 
             string voiceLanguage)

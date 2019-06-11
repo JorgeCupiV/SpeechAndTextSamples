@@ -6,16 +6,18 @@
         internal static string cognitiveServicesSubscriptionKey;
         internal static string cognitiveServicesAccessToken;
         internal static string cognitiveServicesAzureRegion;
+        internal static string textToSpeechAuthTokenUri = "https://{0}.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         internal static string textToSpeechhost = "https://{0}.tts.speech.microsoft.com/cognitiveservices/v1";
         internal static string textToSpeechBody = "<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'>" +
     "<voice name='{0}'>{1}</voice></speak>";
-
 
         public Services(string resourceName, string subscriptionKey, string azureRegion)
         {
             cognitiveServicesResourceName = resourceName;
             cognitiveServicesSubscriptionKey = subscriptionKey;
             cognitiveServicesAzureRegion = azureRegion;
+            textToSpeechhost = string.Format(textToSpeechhost, cognitiveServicesAzureRegion);
+            textToSpeechAuthTokenUri = string.Format(textToSpeechAuthTokenUri, cognitiveServicesAzureRegion);
         }
 
         public struct AzureRegions

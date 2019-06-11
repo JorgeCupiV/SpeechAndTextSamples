@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextToSpeech_EN", "TextToSp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CognitiveServices", "CognitiveServices\CognitiveServices.csproj", "{582F0838-5B7B-4CE5-B2AB-61A3D5973162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechTranslator", "SpeechTranslator\SpeechTranslator.csproj", "{3D36791D-BF09-44C2-A6EF-ED2D0BDA57E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeechTranslator", "SpeechTranslator\SpeechTranslator.csproj", "{3D36791D-BF09-44C2-A6EF-ED2D0BDA57E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognitiveServicesTests", "CognitiveServicesTests\CognitiveServicesTests.csproj", "{E3CE14FC-1FCD-4E09-A486-C933FF59D3BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3D36791D-BF09-44C2-A6EF-ED2D0BDA57E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D36791D-BF09-44C2-A6EF-ED2D0BDA57E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D36791D-BF09-44C2-A6EF-ED2D0BDA57E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3CE14FC-1FCD-4E09-A486-C933FF59D3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CE14FC-1FCD-4E09-A486-C933FF59D3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CE14FC-1FCD-4E09-A486-C933FF59D3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CE14FC-1FCD-4E09-A486-C933FF59D3BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

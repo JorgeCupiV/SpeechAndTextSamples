@@ -78,13 +78,13 @@ namespace CognitiveServices
     /// </summary>
     public sealed class BinaryAudioStreamReader : PullAudioInputStreamCallback
     {
-        private System.IO.BinaryReader _reader;
+        private readonly BinaryReader _reader;
 
         /// <summary>
         /// Creates and initializes an instance of BinaryAudioStreamReader.
         /// </summary>
         /// <param name="reader">The underlying stream to read the audio data from. Note: The stream contains the bare sample data, not the container (like wave header data, etc).</param>
-        public BinaryAudioStreamReader(System.IO.BinaryReader reader)
+        public BinaryAudioStreamReader(BinaryReader reader)
         {
             _reader = reader;
         }

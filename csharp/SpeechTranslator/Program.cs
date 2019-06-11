@@ -37,7 +37,7 @@ namespace SpeechTranslator
                 else
                     break;
 
-                Translation translation = await GetTranslationFromSpeech(
+                Translation translation = await cognitiveServices.GetTranslationFromSpeech(
                 audioToConvertToText,
                 languageOrigin,
                 languageDestiny[0],
