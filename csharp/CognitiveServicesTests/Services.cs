@@ -46,5 +46,23 @@ namespace CognitiveServicesTests
             // Assert
             Assert.Equal(textSample, result);
         }
+
+        [Fact]
+        public async void GetTranslationFromSpeech()
+        {
+            // Arrange
+            string textSample = "Hola. Soy David. ¿Me puedes escuchar?";
+            string fileName = "audio-en-US-1.wav";
+
+            // Act
+            var translation = await _services.GetTranslationFromSpeech(
+                fileName,
+                LanguageLocale.EnglishUnitedStates,
+                Language.Spanish,
+                LanguageForSpeech.SpanishMexicoFemale);
+
+            // Assert
+            Assert.Equal(translation.text, textSample);
+        }
     }
 }
