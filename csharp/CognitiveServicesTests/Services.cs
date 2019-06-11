@@ -32,5 +32,19 @@ namespace CognitiveServicesTests
             // Assert
             Assert.Equal(result.Length,originalStream.Length);
         }
+
+        [Fact]
+        public async void GetTextFromSpeech()
+        {
+            // Arrange
+            string textSample = "Hello I'm David can you hear me?";
+            string fileName= "audio-en-US-1.wav";
+
+            // Act
+            var result = await _services.GetTextFromSpeech(fileName);
+
+            // Assert
+            Assert.Equal(textSample, result);
+        }
     }
 }
