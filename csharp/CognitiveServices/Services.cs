@@ -13,7 +13,7 @@ namespace CognitiveServices
     {
         public async Task<Stream> GetSpeechFromText(string textToSpeech, string language)
         {
-            Services.cognitiveServicesAccessToken  = await Authentication.GetAccessToken();
+            cognitiveServicesAccessToken  = await Authentication.GetAccessToken();
 
             string message = string.Format(textToSpeechBody, language , textToSpeech);
 
@@ -22,7 +22,7 @@ namespace CognitiveServices
                 using (var request = new HttpRequestMessage())
                 {
                     request.Method = HttpMethod.Post;
-                    request.RequestUri = new Uri(textToSpeechhost);
+                    request.RequestUri = new Uri(textToSpeechServiceUri);
                     request.Content = new StringContent(message, Encoding.UTF8, "application/ssml+xml");
                     request.Headers.Add("Authorization", "Bearer " + cognitiveServicesAccessToken);
                     request.Headers.Add("Connection", "Keep-Alive");

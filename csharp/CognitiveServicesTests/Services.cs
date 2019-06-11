@@ -1,6 +1,5 @@
 ﻿using CognitiveServices;
 using System.IO;
-using System.Threading.Tasks;
 using Xunit;
 using static CognitiveServices.Services;
 
