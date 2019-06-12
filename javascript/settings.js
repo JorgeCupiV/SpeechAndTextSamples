@@ -5,9 +5,10 @@
     subscriptionKey:   "YourSubscriptionKey",
     serviceRegion:     "YourServiceRegion",
     originlanguage:    "en-US",
-    targetLanguage:    "zh-CN",
-    targetLanguageTranslation: "zh-Hans",
+    targetLanguage:    "de-DE",
+    targetLanguageTranslation: "de",
     filename:          "audio-en-US-1.wav",
+    result:""
   };
 }());
     

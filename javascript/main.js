@@ -21,8 +21,11 @@
 
     // Translation service also returns recognized text in original language
     console.log("Now translating from: " + settings.filename);
-                translate.main(settings, pushStream);
+    var result = translate.main(settings, pushStream);
     
+    setTimeout(function(){
+      console.log(settings.result);
+    }, 4000);
     // Just for recognizing speech and not translating
     // console.log("Now recognizing speech from: " + settings.filename);
     //             speech.main(settings, pushStream);
