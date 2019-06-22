@@ -24,17 +24,20 @@ namespace CognitiveServicesTests
             // Arrange
             string textSample = "Hello, I'm David, can you hear me?";
             string language = LanguageForSpeech.EnglishNeuralFemale;
-            var originalStream = File.OpenRead("audio-en-US-1.wav");
-
+            string fileName = "audio-en-US-1.wav";
+            Stream result;
             // Act
-            var result = await _services.GetSpeechFromText(textSample, language);
-;
+            using (var stream = new FileStream(fileName, FileMode.Open))
+            {
+                result = await _services.GetSpeechFromText(textSample, language);
+
             // Assert
-            Assert.Equal(result.Length,originalStream.Length);
+                Assert.Equal(result.Length, stream.Length);
+            }
         }
 
         [Fact]
-        public async void GetTextFromSpeech()
+        public async void GetTextFromSpeechFile()
         {
             // Arrange
             string textSample = "Hello I'm David can you hear me?";
@@ -48,10 +51,28 @@ namespace CognitiveServicesTests
         }
 
         [Fact]
-        public async void GetTranslationFromSpeech()
+        public async void GetTextFromSpeechStream()
         {
             // Arrange
-            string textSample = "Hola. Soy David. ¿Me puedes escuchar?";
+            string textSample = "Hello I'm David can you hear me?";
+            string fileName = "audio-en-US-1.wav";
+            string result = string.Empty;
+            
+            // Act
+            using (var stream = new FileStream(fileName, FileMode.Open))
+            {
+                result = await _services.GetTextFromSpeech(Services.LanguageLocale.EnglishUnitedStates, stream);
+            }
+                
+            // Assert
+            Assert.Equal(textSample, result);
+        }
+
+        [Fact]
+        public async void GetTranslationFromSpeechFile()
+        {
+            // Arrange
+            string textSample = "Hola. Yo soy David. ¿Me puedes escuchar?";
             string fileName = "audio-en-US-1.wav";
 
             // Act
@@ -61,6 +82,27 @@ namespace CognitiveServicesTests
                 Language.Spanish,
                 LanguageForSpeech.SpanishMexicoFemale);
 
+            // Assert
+            Assert.Equal(translation.text, textSample);
+        }
+
+        [Fact]
+        public async void GetTranslationFromSpeechStream()
+        {
+            // Arrange
+            string textSample = "Hola. Yo soy David. ¿Me puedes escuchar?";
+            string fileName = "audio-en-US-1.wav";
+            var translation = new Translation();
+
+            // Act
+            using (var stream = new FileStream(fileName, FileMode.Open))
+            {
+                translation = await _services.GetTranslationFromSpeech(
+                stream,
+                LanguageLocale.EnglishUnitedStates,
+                Language.Spanish,
+                LanguageForSpeech.SpanishMexicoFemale);
+            }
             // Assert
             Assert.Equal(translation.text, textSample);
         }
