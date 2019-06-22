@@ -13,17 +13,16 @@ namespace CognitiveServices
             return OpenWavFile(reader);
         }
 
+        public static AudioConfig OpenStream(Stream stream)
+        {
+            BinaryReader reader = new BinaryReader(stream);
+            return OpenWavFile(reader);
+        }
+
         public static AudioConfig OpenWavFile(BinaryReader reader)
         {
             AudioStreamFormat format = readWaveHeader(reader);
             return AudioConfig.FromStreamInput(new BinaryAudioStreamReader(reader), format);
-        }
-
-        public static BinaryAudioStreamReader CreateWavReader(string filename)
-        {
-            BinaryReader reader = new BinaryReader(File.OpenRead(filename));
-            AudioStreamFormat format = readWaveHeader(reader);
-            return new BinaryAudioStreamReader(reader);
         }
 
         public static AudioStreamFormat readWaveHeader(BinaryReader reader)

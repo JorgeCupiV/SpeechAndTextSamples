@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CognitiveServices;
 using static CognitiveServices.Services;
 
-namespace SpeechToText_EN
+namespace SpeechToTextFile
 {
     class Program
     {
@@ -38,7 +38,7 @@ namespace SpeechToText_EN
                     break;
                 }
 
-                string result = await cognitiveServices.GetTextFromSpeech(audioToConvertToText);
+                string result = await cognitiveServices.GetTextFromSpeech(Services.LanguageLocale.EnglishUnitedStates, audioToConvertToText);
                 Console.Clear();
                 Console.WriteLine($"Option {option} selected. Look at the Speech To Text results:\n{result}");
                 Console.ReadKey();

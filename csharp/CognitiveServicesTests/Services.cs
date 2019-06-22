@@ -41,7 +41,7 @@ namespace CognitiveServicesTests
             string fileName= "audio-en-US-1.wav";
 
             // Act
-            var result = await _services.GetTextFromSpeech(fileName);
+            var result = await _services.GetTextFromSpeech(Services.LanguageLocale.EnglishUnitedStates, fileName);
 
             // Assert
             Assert.Equal(textSample, result);
