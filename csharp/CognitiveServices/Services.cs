@@ -15,10 +15,12 @@ namespace CognitiveServices
         /// <summary>
         /// Method that converts text to audio
         /// </summary>
-        /// <param name="text">The text string that needs to be converted to speech</param>
-        /// <param name="language">Receives a LanguageForSpeech as a parameter. 
-        /// Example: 'zh-CN-HuihuiRUS' for a female speaking in Chinese Mainland, 'en-US-ZiraRUS' for a female speaking english.
-        /// Use the LanguageForSpeech struct at the Services class to choose a proper language.</param>
+        /// <param name="text">The text string that needs to be converted to speech.</param>
+        /// <param name="language">
+        /// Receives a LanguageForSpeech as a parameter. <para />
+        /// Example: 'zh-CN-HuihuiRUS' for a female speaking in Chinese Mainland, 'en-US-ZiraRUS' for a female speaking english.<para />
+        /// Use the LanguageForSpeech struct at the Services class to choose a proper language.
+        /// </param>
         /// <returns>Returns a Stream object containing audio obtained from the text sent</returns>
         public async Task<Stream> GetSpeechFromText(string text, string language)
         {
@@ -48,16 +50,20 @@ namespace CognitiveServices
         /// Method that translates an original audio file to a text and a new audio stream
         /// </summary>
         /// <param name="fileName">Filepath of a WAV Fileparam>
-        /// <param name="languageLocale">Receives a Language locale as a parameter. 
-        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain) </param>
-        /// Use the LanguageLocale struct at the Services class to choose a proper language.
-        /// <param name="targetLanguage">Receives a Language as a parameter. 
-        /// Example: 'en' for english, 'es' for spanish
-        /// Use the Language struct at the Services class to choose a proper language.
+        /// <param name="languageLocale">
+        /// Receives a Language locale as a parameter. <para/>
+        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain)<para/>
+        /// Use the LanguageLocale struct at the Services class to choose a proper language.<para/>
         /// </param>
-        /// <param name="voiceLanguage">Receives a LanguageForSpeech as a parameter. 
-        /// Example: 'zh-CN-HuihuiRUS' for a female speaking in Chinese Mainland, 'en-US-ZiraRUS' for a female speaking english.
-        /// Use the LanguageForSpeech struct at the Services class to choose a proper language.
+        /// <param name="targetLanguage">
+        /// Receives a Language as a parameter. <para/>
+        /// Example: 'en' for english, 'es' for spanish<para/>
+        /// Use the Language struct at the Services class to choose a proper language.<para/>
+        /// </param>
+        /// <param name="voiceLanguage">
+        /// Receives a LanguageForSpeech as a parameter. <para />
+        /// Example: 'zh-CN-HuihuiRUS' for a female speaking in Chinese Mainland, 'en-US-ZiraRUS' for a female speaking english.<para />
+        /// Use the LanguageForSpeech struct at the Services class to choose a proper language.<para/>
         /// </param>
         /// <returns>A Translation object that contains a Text and Stream with the translation</returns>
         public async Task<Translation> GetTranslationFromSpeech(string fileName,
@@ -75,16 +81,20 @@ namespace CognitiveServices
         /// Method that translates an original audio stream to a text and a new audio stream
         /// </summary>
         /// <param name="stream">A Stream containing audio</param>
-        /// <param name="languageLocale">Receives a Language locale as a parameter. 
-        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain) </param>
-        /// Use the LanguageLocale struct at the Services class to choose a proper language.
-        /// <param name="targetLanguage">Receives a Language as a parameter. 
-        /// Example: 'en' for english, 'es' for spanish
-        /// Use the Language struct at the Services class to choose a proper language.
+        /// <param name="languageLocale">
+        /// Receives a Language locale as a parameter. <para/>
+        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain)<para/>
+        /// Use the LanguageLocale struct at the Services class to choose a proper language.<para/>
         /// </param>
-        /// <param name="voiceLanguage">Receives a LanguageForSpeech as a parameter. 
-        /// Example: 'zh-CN-HuihuiRUS' for a female speaking in Chinese Mainland, 'en-US-ZiraRUS' for a female speaking english.
-        /// Use the LanguageForSpeech struct at the Services class to choose a proper language.
+        /// <param name="targetLanguage">
+        /// Receives a Language as a parameter. <para/>
+        /// Example: 'en' for english, 'es' for spanish<para/>
+        /// Use the Language struct at the Services class to choose a proper language.<para/>
+        /// </param>
+        /// <param name="voiceLanguage">
+        /// Receives a LanguageForSpeech as a parameter. <para />
+        /// Example: 'zh-CN-HuihuiRUS' for a female speaking in Chinese Mainland, 'en-US-ZiraRUS' for a female speaking english.<para />
+        /// Use the LanguageForSpeech struct at the Services class to choose a proper language.<para/>
         /// </param>
         /// <returns>A Translation object that contains a Text and Stream with the translation</returns>
         public async Task<Translation> GetTranslationFromSpeech(Stream stream,
@@ -101,9 +111,10 @@ namespace CognitiveServices
         /// <summary>
         /// Method that converts an audio file to text
         /// </summary>
-        /// <param name="language">Receives a Language locale as a parameter. 
-        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain) 
-        /// Use the LanguageLocale struct at the Services class to choose a proper language.
+        /// <param name="language">
+        /// Receives a Language locale as a parameter. <para/>
+        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain) <para/>
+        /// Use the LanguageLocale struct at the Services class to choose a proper language.<para/>
         /// </param>
         /// <param name="fileName">Filepath of a WAV File</param>
         /// <returns>A string containing the text obtained from the WAV file</returns>
@@ -118,12 +129,12 @@ namespace CognitiveServices
         /// <summary>
         /// Method that converts an audio stream to text
         /// </summary>
-        /// <param name="language">Receives a Language locale as a parameter. 
-        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain) 
-        /// Use the LanguageLocale struct at the Services class to choose a proper language.
-        /// </param>
+        /// <param name="language">
+        /// Receives a Language locale as a parameter. <para/>
+        /// Example: 'en-US' for english (United States), 'es-ES' for spanish (Spain) <para/>
+        /// Use the LanguageLocale struct at the Services class to choose a proper language.<para/>
         /// <param name="stream">A Stream containing audio</param>
-        /// /// <returns>A string containing the text obtained from the stream</returns>
+        /// <returns>A string containing the text obtained from the stream</returns>
         public async Task<string> GetTextFromSpeech(string language, Stream stream)
         {
             using (var audioInput = Helper.OpenStream(stream))
